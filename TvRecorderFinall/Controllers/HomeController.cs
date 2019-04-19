@@ -13,6 +13,7 @@ namespace TvRecorderFinall.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpPost]
         public ActionResult Index()
         {
             return View();
@@ -32,7 +33,8 @@ namespace TvRecorderFinall.Controllers
             return View();
         }
 
-        [HttpPost]
+
+
         public ActionResult Index(HttpPostedFileBase file, Notification model)
         {
 
