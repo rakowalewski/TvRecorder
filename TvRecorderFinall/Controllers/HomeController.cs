@@ -65,6 +65,7 @@ namespace TvRecorderFinall.Controllers
                     WindowsIdentity wi = WindowsIdentity.GetCurrent();
                     model.Login = wi.Name;
                     model.CreatedAt = DateTime.UtcNow;
+
                     records.IdNotification = model.IdNotifiaction;
                     records.SAP = model.Sap;
                     records.Date = model.CreatedAt;
@@ -99,6 +100,12 @@ namespace TvRecorderFinall.Controllers
                 ViewBag.Message = "You have not specified a file.";
             }
             return View();
+        }
+
+        public ActionResult About()
+        {
+            //bind data to table
+            //create view in db
         }
     }
 }
