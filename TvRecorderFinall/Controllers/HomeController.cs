@@ -8,11 +8,45 @@ using System.Web.Mvc;
 using TvRecorderFinall.Models;
 using System.Security.Cryptography;
 using System.Text;
+using System.Data.SqlClient;
 
 namespace TvRecorderFinall.Controllers
 {
+    
     public class HomeController : Controller
     {
+        private List<Notification> notificationsList;
+        
+
+        public HomeController(Notification model)
+        {
+            
+             string connectionString= @"data source=zyskplustst;initial catalog=test_tvrecorder;integrated security=True;MultipleActiveResultSets=True";
+            test_tvrecorderEntities db = new test_tvrecorderEntities();
+           Record records = new Record();
+           
+            var query = "Select * from Record where sap = @SAP";
+            var result = new List<Notification>();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (var cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("SAP", model.Sap);
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var record = new Notification();
+                        record.Sap = (int)reader["SAP"];
+                        record.IdNotifiaction = (int)reader["IdNotifiaction"];
+                        record.CreatedAt = (DateTime)reader["Date"];
+                        record.Login = reader["Login"].ToString();
+                        record.NameFile = reader["FileName"].ToString();
+                    }
+                }
+            }
+            
+        }
         [HttpPost]
         public ActionResult Index()
         {
@@ -21,7 +55,8 @@ namespace TvRecorderFinall.Controllers
 
         public ActionResult About()
         {
-          //  ViewBag.Message = "Your application description page.";
+            //bind data to table
+            //create view in db
 
             return View();
         }
@@ -102,10 +137,6 @@ namespace TvRecorderFinall.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            //bind data to table
-            //create view in db
-        }
+       
     }
 }
