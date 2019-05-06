@@ -67,9 +67,17 @@ namespace TvRecorderFinall.Controllers
             return View(history);
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact(Notification model)
         {
-            if ()
+            if (model.Sap != 0)
+            {
+                GetSapHistory(model.Sap);
+            }
+            else if (model.IdNotifiaction !=0)
+            {
+                GetIdNotificationHistory(model.IdNotifiaction);
+            }
+            else if (String.IsNullOrEmpty(GetLoginHistory))
             {
 
             }

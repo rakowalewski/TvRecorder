@@ -205,3 +205,4 @@ C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFi
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.csproj.CopyComplete
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.pdb
+C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.csprojAssemblyReference.cache
