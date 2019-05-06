@@ -240,9 +240,11 @@
     <Content Include="TvReaderModel.edmx.diagram">
       <DependentUpon>TvReaderModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Shared\_TableHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

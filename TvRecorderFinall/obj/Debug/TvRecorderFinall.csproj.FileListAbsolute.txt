@@ -201,7 +201,6 @@ C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\pl\System.Web.Razo
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\pl\System.Web.WebPages.resources.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\pl\System.Web.WebPages.Deployment.resources.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\pl\System.Web.WebPages.Razor.resources.dll
-C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.csprojAssemblyReference.cache
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.csproj.CoreCompileInputs.cache
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.csproj.CopyComplete
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.dll

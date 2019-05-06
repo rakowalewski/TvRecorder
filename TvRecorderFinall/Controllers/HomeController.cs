@@ -9,65 +9,121 @@ using TvRecorderFinall.Models;
 using System.Security.Cryptography;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data.Entity;
+
 
 namespace TvRecorderFinall.Controllers
 {
     
     public class HomeController : Controller
     {
-        private List<Notification> notificationsList;
-        
+        #region MyRegion
+        /* private List<Notification> notificationsList;
 
-        public HomeController(Notification model)
-        {
-            
-             string connectionString= @"data source=zyskplustst;initial catalog=test_tvrecorder;integrated security=True;MultipleActiveResultSets=True";
-            test_tvrecorderEntities db = new test_tvrecorderEntities();
-           Record records = new Record();
-           
-            var query = "Select * from Record where sap = @SAP";
-            var result = new List<Notification>();
-            using (var connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                using (var cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("SAP", model.Sap);
-                    var reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        var record = new Notification();
-                        record.Sap = (int)reader["SAP"];
-                        record.IdNotifiaction = (int)reader["IdNotifiaction"];
-                        record.CreatedAt = (DateTime)reader["Date"];
-                        record.Login = reader["Login"].ToString();
-                        record.NameFile = reader["FileName"].ToString();
-                    }
-                }
-            }
-            
-        }
+
+         public HomeController(Notification model)
+         {
+
+              string connectionString= @"data source=zyskplustst;initial catalog=test_tvrecorder;integrated security=True;MultipleActiveResultSets=True";
+             test_tvrecorderEntities db = new test_tvrecorderEntities();
+            Record records = new Record();
+
+             var query = "Select * from Record where sap = @SAP";
+             var result = new List<Notification>();
+             using (var connection = new SqlConnection(connectionString))
+             {
+                 connection.Open();
+                 using (var cmd = new SqlCommand(query, connection))
+                 {
+                     cmd.Parameters.AddWithValue("SAP", model.Sap);
+                     var reader = cmd.ExecuteReader();
+                     while (reader.Read())
+                     {
+                         var record = new Notification();
+                         record.Sap = (int)reader["SAP"];
+                         record.IdNotifiaction = (int)reader["IdNotifiaction"];
+                         record.CreatedAt = (DateTime)reader["Date"];
+                         record.Login = reader["Login"].ToString();
+                         record.NameFile = reader["FileName"].ToString();
+                     }
+                 }
+             }
+
+         }
+         */
+        #endregion
+
+        
+        
         [HttpPost]
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult About()
+        [HttpGet]
+        public ViewResult About()
         {
-            //bind data to table
-            //create view in db
-
-            return View();
+            var history = GetNotification();
+            return View(history);
         }
 
         public ActionResult Contact()
         {
-          //  ViewBag.Message = "Your contact page.";
+            if ()
+            {
+
+            }
 
             return View();
         }
 
+        private IEnumerable<Notification> GetLoginHistory(string login)
+        {
+            var recorder = new test_tvrecorderEntities();
+            var notification = recorder.Record.Where(x => x.Login == login);
+            List<Notification> list = new List<Notification>();
+            foreach (var item in notification)
+            {
+                list.Add(Notification.Parse(item));
+            }
+            return list;
+        }
+        private IEnumerable<Notification> GetIdNotificationHistory(int idNotification)
+        {
+            var recorder = new test_tvrecorderEntities();
+            var notification = recorder.Record.Where(x => x.IdNotification == idNotification);
+            List<Notification> list = new List<Notification>();
+            foreach (var item in notification)
+            {
+                list.Add(Notification.Parse(item));
+            }
+            return list;
+        }
+        private IEnumerable<Notification> GetSapHistory(int sap)
+        {
+            var recorder = new test_tvrecorderEntities();
+            var notification = recorder.Record.Where(x => x.SAP == sap);
+            List<Notification> list = new List<Notification>();
+            foreach (var item in notification)
+            {
+                list.Add(Notification.Parse(item));
+            }
+            return list;
+        }
+
+        //cała historia zgłoszeń
+        private IEnumerable<Notification> GetNotification()
+        {
+            var recorder = new test_tvrecorderEntities();
+            var notification = recorder.Record.ToList();
+            List<Notification> list = new List<Notification>();
+            foreach (var item in notification)
+            {
+                list.Add(Notification.Parse(item));
+            }
+            return list;
+        }
+       
 
 
         public ActionResult Index(HttpPostedFileBase file, Notification model)
@@ -108,6 +164,7 @@ namespace TvRecorderFinall.Controllers
                     records.FileName = model.NameFile;
                     db.Record.Add(records);
                     db.SaveChanges();
+                    db.Dispose();
 
                     ViewBag.Message = "File uploaded successfully";
                     return RedirectToAction("Index");

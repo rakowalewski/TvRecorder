@@ -30,5 +30,19 @@ namespace TvRecorderFinall.Models
         {
             File = new List<HttpPostedFile>();
         }
+
+        public static Notification Parse(TvRecorderFinall.Record record)
+        {
+            Notification notification = new Notification
+            {
+                Sap = record.SAP,
+                IdNotifiaction = record.IdNotification,
+                CreatedAt = record.Date,
+                Login = record.Login,
+                NameFile = record.FileName
+            };
+            return notification;
+        }
+        
     }
 }

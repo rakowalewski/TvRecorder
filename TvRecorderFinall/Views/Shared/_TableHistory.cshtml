@@ -1,0 +1,23 @@
+﻿<table style="width:100%;"><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table>
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Sap </th>
+        <th>idNotification </th>
+        <th>CreatedAt </th>
+        <th>Login</th>
+        <th>NameFile</th>
+        <th>Download</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.Sap</td>
+            <td>@d.IdNotifiaction</td>
+            <td>@d.CreatedAt</td>
+            <td>@d.Login</td>
+            <td>@d.NameFile</td>
+
+
+        </tr>
+    }
+</table>

@@ -1,16 +1,42 @@
-﻿@{
+﻿@model TvRecorderFinall.Models.Notification
+
+
+@{
     ViewBag.Title = "Contact";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<address>
-    NEUCA S.A.<br />
-    Toruń, 87-100<br />
-    <abbr title="Phone">P:</abbr>
-    56 669 40 00
-</address>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
 
-<address>
-    <strong>Contact:</strong>   <a href="mailto:Support@example.com">neuca@neuca.pl</a><br />
-</address>
+<div class="form-inline">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Sap, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Sap, new { htmlAttributes = new { @class = "form-control" }  }, { id = "SapText" }, new { data_url = Url.Action("","Home")})
+            @Html.ValidationMessageFor(model => model.Sap, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdNotifiaction, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.IdNotifiaction, new { htmlAttributes = new { @class = "form-control" },{ id = "IdNotificationText" }})
+            @Html.ValidationMessageFor(model => model.IdNotifiaction, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" },{ id = "LoginText" }})
+            @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <input type="button" value="Pokaż wszystko" onclick="location.href='@Url.Action("Contact", "Home")'" />
+
+</div>
+}
