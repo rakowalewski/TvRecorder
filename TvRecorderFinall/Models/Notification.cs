@@ -14,7 +14,7 @@ namespace TvRecorderFinall.Models
 
         [Display(Name = "IdNotifiaction")]
         [Range(10000, 999999)]
-        public int IdNotifiaction { get; set; }
+        public int IdNotification { get; set; }
 
         [Display(Name = "CreatedAt")]
         public DateTime CreatedAt { get; set; }
@@ -26,6 +26,8 @@ namespace TvRecorderFinall.Models
 
         public List<HttpPostedFile> File { get; set; }
 
+        
+
         public Notification()
         {
             File = new List<HttpPostedFile>();
@@ -36,7 +38,7 @@ namespace TvRecorderFinall.Models
             Notification notification = new Notification
             {
                 Sap = record.SAP,
-                IdNotifiaction = record.IdNotification,
+                IdNotification = record.IdNotification,
                 CreatedAt = record.Date,
                 Login = record.Login,
                 NameFile = record.FileName

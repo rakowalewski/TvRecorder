@@ -53,9 +53,9 @@ namespace TvRecorderFinall.Controllers
          */
         #endregion
 
-        
-        
-        [HttpPost]
+
+
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -67,36 +67,41 @@ namespace TvRecorderFinall.Controllers
             return View(history);
         }
         [HttpGet]
-        public ActionResult SpecificHistory(Notification model)
+        public ActionResult Contact()
         {
-            var widok = GetSapHistory(model.Sap);
+            var model = new SearchViewModel
+            {
+                Notifications = new List<Notification>()
+            };
+            return View("Contact", model);
+        }
+        [HttpPost]
+        public ActionResult Contact(SearchViewModel model)
+        {
+            model.Notifications = GetSapHistory(model.Sap);
             if (model.Sap != 0)
             {
-                widok = GetSapHistory(model.Sap);
-
+                model.Notifications = GetSapHistory(model.Sap);
             }
-            else if (model.IdNotifiaction != 0)
+            else if (model.IdNotification != 0)
             {
-                widok = GetIdNotificationHistory(model.IdNotifiaction);
-
+                model.Notifications = GetIdNotificationHistory(model.IdNotification);
             }
             else if (model.Login == "null")
             {
-                widok = GetLoginHistory(model.Login);
-
-
+                model.Notifications = GetLoginHistory(model.Login);
             }
-            return PartialView("_TableHistory", widok);
+            return View("Contact", model);
             
         }
         
-        
-        public ActionResult Contact()
-        {
+        //[HttpGet]
+        //public ActionResult Contact()
+        //{
 
-            return View("~/Views/Home/Contact.cshtml");
-            //return PartialView(history);
-        }
+        //    return View("~/Views/Home/Contact.cshtml");
+        //    //return PartialView(history);
+        //}
 
         //private IEnumerable<Notification> CheckCondition(Notification model)
         //{
@@ -146,7 +151,7 @@ namespace TvRecorderFinall.Controllers
         private IEnumerable<Notification> GetSapHistory(int sap)
         {
             var recorder = new test_tvrecorderEntities();
-            var notification = recorder.Record.Where(x => x.SAP == sap);
+            var notification = recorder.Record.Where(x => x.SAP == sap).ToList();
             List<Notification> list = new List<Notification>();
             foreach (var item in notification)
             {
@@ -167,9 +172,9 @@ namespace TvRecorderFinall.Controllers
             }
             return list;
         }
-       
 
 
+        [HttpPost]
         public ActionResult Index(HttpPostedFileBase file, Notification model)
         {
 
@@ -189,9 +194,10 @@ namespace TvRecorderFinall.Controllers
                             model.NameFile += String.Format("{0:x2}", x);
                         }
                     }
-
+                    //TODO: zapis do folderu
                     //trzeba wpisać poprawny adres gdzie mają być kopiowane pliki
-                    var path = Path.Combine(Server.MapPath("\\upload"), model.NameFile);
+                    // var path = Path.Combine(Server.MapPath(@"\\ZYSKPLUSTST\upload_tv_app$"), model.NameFile);
+                    var path = @"C:\Users\rakowalewski\Desktop\test_nagranie" + model.NameFile;
                     file.SaveAs(path);
 
                     //Zapis do bazy
@@ -201,7 +207,7 @@ namespace TvRecorderFinall.Controllers
                     model.Login = wi.Name;
                     model.CreatedAt = DateTime.UtcNow;
 
-                    records.IdNotification = model.IdNotifiaction;
+                    records.IdNotification = model.IdNotification;
                     records.SAP = model.Sap;
                     records.Date = model.CreatedAt;
                     records.Login = model.Login;

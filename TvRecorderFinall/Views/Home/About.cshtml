@@ -7,7 +7,7 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("About", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -42,7 +42,7 @@
             {
                 <tr>
                     <td>@d.Sap</td>
-                    <td>@d.IdNotifiaction</td>
+                    <td>@d.IdNotification</td>
                     <td>@d.CreatedAt</td>
                     <td>@d.Login</td>
                     <td>@d.NameFile</td>
