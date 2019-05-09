@@ -48,7 +48,7 @@
 
     <div class="form-group">
         @Html.TextBoxFor(model => model.File, new { type = "file", name = "File" })<br /><br />
-        <input type="submit" value="Dodaj" name="submitme" id="submitme" />
+        <input type="submit" value="Dodaj" name="submitme" id="submitme" onclick="location.href='@Url.Action("Index", "Home")'" />
     </div>
 
 

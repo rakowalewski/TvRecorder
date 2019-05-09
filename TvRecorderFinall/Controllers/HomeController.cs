@@ -66,24 +66,60 @@ namespace TvRecorderFinall.Controllers
             var history = GetNotification();
             return View(history);
         }
-
-        public ActionResult Contact(Notification model)
+        [HttpGet]
+        public ActionResult SpecificHistory(Notification model)
         {
+            var widok = GetSapHistory(model.Sap);
             if (model.Sap != 0)
             {
-                GetSapHistory(model.Sap);
-            }
-            else if (model.IdNotifiaction !=0)
-            {
-                GetIdNotificationHistory(model.IdNotifiaction);
-            }
-            else if (String.IsNullOrEmpty(GetLoginHistory))
-            {
+                widok = GetSapHistory(model.Sap);
 
             }
+            else if (model.IdNotifiaction != 0)
+            {
+                widok = GetIdNotificationHistory(model.IdNotifiaction);
 
-            return View();
+            }
+            else if (model.Login == "null")
+            {
+                widok = GetLoginHistory(model.Login);
+
+
+            }
+            return PartialView("_TableHistory", widok);
+            
         }
+        
+        
+        public ActionResult Contact()
+        {
+
+            return View("~/Views/Home/Contact.cshtml");
+            //return PartialView(history);
+        }
+
+        //private IEnumerable<Notification> CheckCondition(Notification model)
+        //{
+        //    var list = GetSapHistory(model.Sap);
+        //    if (model.Sap != 0)
+        //    {
+        //        list = GetSapHistory(model.Sap);
+                
+        //    }
+        //    else if (model.IdNotifiaction != 0)
+        //    {
+        //        list = GetIdNotificationHistory(model.IdNotifiaction);
+                
+        //    }
+        //    else if (model.Login == "null")
+        //    {
+        //       list = GetLoginHistory(model.Login);
+                
+
+        //    }
+        //    return list;
+           
+        //}
 
         private IEnumerable<Notification> GetLoginHistory(string login)
         {
