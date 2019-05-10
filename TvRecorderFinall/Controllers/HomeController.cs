@@ -58,6 +58,7 @@ namespace TvRecorderFinall.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+                  
             return View();
         }
         [HttpGet]
@@ -173,7 +174,7 @@ namespace TvRecorderFinall.Controllers
             return list;
         }
 
-
+        
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file, Notification model)
         {
@@ -196,8 +197,8 @@ namespace TvRecorderFinall.Controllers
                     }
                     //TODO: zapis do folderu
                     //trzeba wpisać poprawny adres gdzie mają być kopiowane pliki
-                    // var path = Path.Combine(Server.MapPath(@"\\ZYSKPLUSTST\upload_tv_app$"), model.NameFile);
-                    var path = @"C:\Users\rakowalewski\Desktop\test_nagranie" + model.NameFile;
+                    var path = Path.Combine(Server.MapPath(@"\\upload"), model.NameFile);
+                    //var path = @"C:\Users\rakowalewski\Desktop\test_nagranie" + model.NameFile;
                     file.SaveAs(path);
 
                     //Zapis do bazy
