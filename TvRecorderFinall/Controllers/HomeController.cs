@@ -205,7 +205,8 @@ namespace TvRecorderFinall.Controllers
                     test_tvrecorderEntities db = new test_tvrecorderEntities();
                     Record records = new Record();
                     WindowsIdentity wi = WindowsIdentity.GetCurrent();
-                    model.Login = wi.Name;
+                   // model.Login = wi.Name;
+                   
                     model.CreatedAt = DateTime.UtcNow;
 
                     records.IdNotification = model.IdNotification;
