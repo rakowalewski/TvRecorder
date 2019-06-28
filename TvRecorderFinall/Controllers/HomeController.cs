@@ -84,11 +84,11 @@ namespace TvRecorderFinall.Controllers
             {
                 model.Notifications = GetSapHistory(model.Sap);
             }
-            else if (model.IdNotification != 0)
+           if (model.IdNotification != 0)
             {
                 model.Notifications = GetIdNotificationHistory(model.IdNotification);
             }
-            else if (model.Login == "null")
+           if (model.Login != "null")
             {
                 model.Notifications = GetLoginHistory(model.Login);
             }
@@ -207,7 +207,7 @@ namespace TvRecorderFinall.Controllers
                     WindowsIdentity wi = WindowsIdentity.GetCurrent();
                    // model.Login = wi.Name;
                    
-                    model.CreatedAt = DateTime.UtcNow;
+                    model.CreatedAt = DateTime.UtcNow.AddHours(2);
 
                     records.IdNotification = model.IdNotification;
                     records.SAP = model.Sap;
