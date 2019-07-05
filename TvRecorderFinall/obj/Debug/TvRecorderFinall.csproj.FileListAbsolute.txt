@@ -102,6 +102,12 @@ C:\Rafal\Dev\TvRecorderFinall\TvRecorderFinall\obj\Debug\TvRecorderFinall.csproj
 C:\Rafal\Dev\TvRecorderFinall\TvRecorderFinall\obj\Debug\TvRecorderFinall.csproj.CopyComplete
 C:\Rafal\Dev\TvRecorderFinall\TvRecorderFinall\obj\Debug\TvRecorderFinall.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorderFinall\obj\Debug\TvRecorderFinall.pdb
+C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\System.IO.Compression.dll
+C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\VBCSCompiler.exe
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\ApplicationInsights.config
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\TvRecorderFinall.dll.config
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\TvRecorderFinall.dll
@@ -113,13 +119,9 @@ C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\csi.exe
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\csi.exe.config
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\csi.rsp
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\Microsoft.Win32.Primitives.dll
@@ -129,7 +131,6 @@ C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\System.Cons
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\System.Diagnostics.Process.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\System.IO.Compression.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\System.IO.FileSystem.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\System.IO.FileSystem.Primitives.dll
@@ -152,7 +153,6 @@ C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\System.Xml.
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\vbc.exe
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\vbc.exe.config
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\vbc.rsp
-C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\VBCSCompiler.exe
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\roslyn\VBCSCompiler.exe.config
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\Antlr3.Runtime.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\EntityFramework.dll
@@ -201,8 +201,8 @@ C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\pl\System.Web.Razo
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\pl\System.Web.WebPages.resources.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\pl\System.Web.WebPages.Deployment.resources.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\bin\pl\System.Web.WebPages.Razor.resources.dll
+C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.csprojAssemblyReference.cache
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.csproj.CoreCompileInputs.cache
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.csproj.CopyComplete
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.dll
 C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.pdb
-C:\Rafal\Dev\TvRecorderFinall\TvRecorder\TvRecorderFinall\obj\Debug\TvRecorderFinall.csprojAssemblyReference.cache

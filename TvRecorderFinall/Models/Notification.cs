@@ -12,16 +12,17 @@ namespace TvRecorderFinall.Models
         [Range(100000,999999)]
         public int Sap { get; set; }
 
-        [Display(Name = "IdNotifiaction")]
+        [Display(Name = "Numer zgłoszenia")]
         [Range(10000, 999999)]
         public int IdNotification { get; set; }
 
-        [Display(Name = "CreatedAt")]
+        [Display(Name = "Data wgrania")]
         public DateTime CreatedAt { get; set; }
 
         [Display(Name = "Login")]
         public string Login { get; set; }
-        [Display(Name = "NameFile")]
+
+        [Display(Name = "Nazwa pliku")]
         public string NameFile { get; set; }
 
         public List<HttpPostedFile> File { get; set; }

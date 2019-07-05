@@ -62,37 +62,37 @@ namespace TvRecorderFinall.Controllers
             return View();
         }
         [HttpGet]
-        public ViewResult About()
+        public ViewResult History()
         {
             var history = GetNotification();
             return View(history);
         }
         [HttpGet]
-        public ActionResult Contact()
+        public ActionResult Search()
         {
             var model = new SearchViewModel
             {
                 Notifications = new List<Notification>()
             };
-            return View("Contact", model);
+            return View("Search", model);
         }
         [HttpPost]
-        public ActionResult Contact(SearchViewModel model)
+        public ActionResult Search(SearchViewModel model)
         {
-            model.Notifications = GetSapHistory(model.Sap);
+            //model.Notifications = GetSapHistory(model.Sap);
             if (model.Sap != 0)
             {
                 model.Notifications = GetSapHistory(model.Sap);
             }
-           if (model.IdNotification != 0)
+            else if (model.IdNotification != 0)
             {
                 model.Notifications = GetIdNotificationHistory(model.IdNotification);
             }
-           if (model.Login != "null")
+            else if (model.Login != "null")
             {
                 model.Notifications = GetLoginHistory(model.Login);
             }
-            return View("Contact", model);
+            return View("Search", model);
             
         }
         
@@ -195,16 +195,16 @@ namespace TvRecorderFinall.Controllers
                             model.NameFile += String.Format("{0:x2}", x);
                         }
                     }
+                    //var path = @"C:\Users\rakowalewski\Desktop\test_nagranie" + model.NameFile;
                     //TODO: zapis do folderu
                     //trzeba wpisać poprawny adres gdzie mają być kopiowane pliki
                     var path = Path.Combine(Server.MapPath(@"\\upload"), model.NameFile);
-                    //var path = @"C:\Users\rakowalewski\Desktop\test_nagranie" + model.NameFile;
                     file.SaveAs(path);
 
                     //Zapis do bazy
                     test_tvrecorderEntities db = new test_tvrecorderEntities();
                     Record records = new Record();
-                    WindowsIdentity wi = WindowsIdentity.GetCurrent();
+                   // WindowsIdentity identity = ;
                    // model.Login = wi.Name;
                    
                     model.CreatedAt = DateTime.UtcNow.AddHours(2);
@@ -212,7 +212,7 @@ namespace TvRecorderFinall.Controllers
                     records.IdNotification = model.IdNotification;
                     records.SAP = model.Sap;
                     records.Date = model.CreatedAt;
-                    records.Login = model.Login;
+                    records.Login = User.Identity.Name;
                     records.FileName = model.NameFile;
                     db.Record.Add(records);
                     db.SaveChanges();
