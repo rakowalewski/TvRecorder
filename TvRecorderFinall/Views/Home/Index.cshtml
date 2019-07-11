@@ -4,55 +4,77 @@
     ViewBag.Title = "Dodaj";
 }
 
+<script type="text/javascript">
+    var t;
+    window.onload = resetTimer;
+    document.onmousemove = resetTimer;
+    document.onkeypress = resetTimer;
+
+    function logout() {
+
+        try {
+            document.execCommand("ClearAuthenticationCache");
+            window.location.href = window.location.protocol.replace(/\:/g, '') + "://" + window.location.host + "/Home/Index";
+        }
+        catch (e) { }
+
+    }
+
+    function resetTimer() {
+        window.clearTimeout(t);
+        t = window.setTimeout(logout, 900000);
+    }
+</script>
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <h4>Rejestracja nagrania</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.Sap, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.Sap, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Sap, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IdNotification, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.IdNotification, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.IdNotification, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    @*<div class="form-group">
-            @Html.LabelFor(model => model.CreatedAt, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="form-horizontal">
+        <h4>Rejestracja nagrania</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sap, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CreatedAt, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CreatedAt, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.Sap, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Sap, "", new { @class = "text-danger" })
             </div>
         </div>
-    *@
-    @*<div class="form-group">
-        @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-          
-            @Html.TextBoxFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdNotification, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.IdNotification, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IdNotification, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>*@
 
-    <div class="form-group">
-        @Html.TextBoxFor(model => model.File, new { type = "file", name = "File" })<br /><br />
-        <input type="submit" value="Dodaj" @*name="submitme" id="submitme" onclick="location.href='@Url.Action("Index", "Home")'"*@ />
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.CreatedAt, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CreatedAt, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CreatedAt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        *@
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Login, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.TextBoxFor(model => model.Login, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.File, new { type = "file", name = "File" })<br /><br />
+            <input type="submit" value="Dodaj" @*name="submitme" id="submitme" onclick="location.href='@Url.Action("Index", "Home")'"*@ />
+        </div>
+
+
     </div>
-
-
-</div>
 }
 
 @section Scripts {

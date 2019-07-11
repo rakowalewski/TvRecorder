@@ -196,7 +196,6 @@ namespace TvRecorderFinall.Controllers
                         }
                     }
                     //var path = @"C:\Users\rakowalewski\Desktop\test_nagranie" + model.NameFile;
-                    //TODO: zapis do folderu
                     //trzeba wpisać poprawny adres gdzie mają być kopiowane pliki
                     var path = Path.Combine(Server.MapPath(@"\\upload"), model.NameFile);
                     file.SaveAs(path);
